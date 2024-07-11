@@ -39,7 +39,7 @@ export const Faq = () => {
     return (
         <div>
             <h1 className="text-center font-CustomFont text-3xl py-2 font-bold">FAQ</h1>
-            <Accordion type="single" collapsible className="w-ful max-w-2xl mx-auto">
+            <Accordion type="single" collapsible className="w-ful max-w-2xl mx-auto font-CustomFont">
             {
                 faqData.map(fq => (
                     <AccordionItem value={fq.value} key={fq.value}>
