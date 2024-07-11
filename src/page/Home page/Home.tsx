@@ -1,11 +1,12 @@
-import Aboutus from "../Aboutus";
+import { Faq } from "./Faq";
 import Hero from "./Hero";
 
 const Home = () => {
     return (
         <div className=" w-full">
            <Hero></Hero>
-           <Aboutus></Aboutus>
+           <Faq/>
+
           
         </div>
     );
