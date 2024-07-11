@@ -1,13 +1,11 @@
-import { Button } from "./components/ui/button"
+import MainLayout from "./layout/MainLayout"
 
 
 function App() {
 
   return (
     <>
-      <Button>
-        Home
-      </Button>
+    <MainLayout></MainLayout>
     </>
   )
 }
