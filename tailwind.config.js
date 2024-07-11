@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -17,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily:{
+       CustomFont:['Poppins']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
