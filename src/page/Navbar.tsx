@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <header className="flex h-14 w-full shrink-0 items-center bg-transparent backdrop-blur-md px-4 md:px-6 absolute z-20 font-CustomFont">
             <Link to={'/'} className="mr-6 flex">
-                <div className="flex flex-row items-center justify-center gap-2">
+                <div className="flex flex-row items-center justify-center gap-2 ">
                     <div><img src={logo} width={30} height={30} /></div>
                     <p className="text-white font-CustomFont font-extrabold uppercase text-2xl tracking-widest">CampGear</p>
                 </div>
