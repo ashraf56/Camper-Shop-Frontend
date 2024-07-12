@@ -27,7 +27,9 @@ const RecommendedProducts = () => {
     return (
         <div className="my-10  flex flex-col  mx-auto font-CustomFont">
             <div>
-                <h1 className="text-center font-CustomFont text-3xl py-5 font-bold">Recommended Products</h1>
+                <h1 className="text-center uppercase font-CustomFont pb-1 text-3xl font-bold">Recommended Products</h1>
+                <p className="text-center text-sm font-light pb-5  uppercase tracking-[0.2em]">Top Picks for Your Outdoor Adventures</p>
+
             </div>
             <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto px-5">
                 {

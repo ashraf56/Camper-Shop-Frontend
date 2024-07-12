@@ -27,7 +27,8 @@ const contacts = [
 const ContactInfo = () => (
     <div className="container font-CustomFont  mx-auto my-10">
 
-        <h1 className="uppercase text-center pb-2 text-3xl font-bold ">Get In touch</h1>
+        <h1 className="uppercase text-center  text-3xl font-bold ">Get In touch</h1>
+        <p className="text-center text-sm font-light pb-2  uppercase tracking-[0.2em]">Contuct us</p>
 
         {/* here is  google map */}
         <div className=" block lg:flex  font-CustomFont justify-center items-center mx-auto">
