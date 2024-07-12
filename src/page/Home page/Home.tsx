@@ -1,5 +1,6 @@
 import Categories from "./Categories";
 import { Faq } from "./Faq";
+import FeatureProducta from "./FeatureProducta";
 import Hero from "./Hero";
 import UniqueSection from "./UniqueSection";
 
@@ -9,6 +10,7 @@ const Home = () => {
            <Hero></Hero>
            <Categories></Categories>
            <UniqueSection></UniqueSection>
+           <FeatureProducta></FeatureProducta>
            <Faq/>
 
 

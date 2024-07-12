@@ -5,6 +5,8 @@ import logo from "@/assets/mountain.png"
 import cart from "@/assets/cart.svg"
 import order from "@/assets/orders.svg"
 import menu from "@/assets/menus.svg"
+import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+
 import {
     Sheet,
     SheetContent,
@@ -23,25 +25,25 @@ const Navbar = () => {
 
             </Link>
             <nav className="ml-auto hidden lg:flex gap-6 text-white ">
-                <Button variant={'outline'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
+                <Button variant={'ghost'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
                     <Link to={'/'}
                     >
                         Home
                     </Link>
                 </Button>
-                <Button variant={'outline'} size={"default"} className="uppercase bg-transparent hover:bg-transparent"  >
+                <Button variant={'ghost'} size={"default"} className="uppercase bg-transparent hover:bg-transparent"  >
                     <Link to={'/about'}
                     >
                         About us
                     </Link>
                 </Button>
-                <Button variant={'outline'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
+                <Button variant={'ghost'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
                     <Link to={'/products'}
                     >
                         ALL Products
                     </Link>
                 </Button>
-                <Button variant={'outline'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
+                <Button variant={'ghost'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
                     <Link to={'/products'}
                     >
                         Products Management
@@ -51,22 +53,22 @@ const Navbar = () => {
 
 
             </nav>
-            <nav className="ml-auto hidden lg:flex gap-3">
-                <Button variant={'outline'} size={"default"} >
+            <nav className="ml-auto hidden lg:flex justify-center ">
+                <Button variant={'ghost'} size={"default"} className="bg-transparent hover:bg-transparent" >
                     <Link to={'/products'}
                     >
-                        <div className="flex gap-2">
-                            <img src={order} width={20} height={20} />
-                            <p>12</p>
+                        <div className="flex gap-2 text-white">
+                        <ShoppingBagIcon className="h-5 w-5 text-white" />
+                        <p>12</p>
                         </div>
                     </Link>
                 </Button>
-                <Button variant={'outline'} size={"default"} >
+                <Button variant={'ghost'} size={"default"} className="bg-transparent hover:bg-transparent"  >
                     <Link to={'/products'}
                     >
-                        <div className="flex gap-2">
-                            <img src={cart} width={20} height={20} />
-                            <p>12</p>
+                        <div className="flex gap-2 text-white">
+                        <ShoppingCartIcon className="w-5 h-5 text-white" />
+                        <p>12</p>
                         </div>
                     </Link>
                 </Button>
