@@ -2,7 +2,7 @@ import imgs from '@/assets/unique.jpg'
 
 const UniqueSection = () => {
     return (
-        <div className='h-[550px] '  style={{
+        <div className='h-[550px] overflow-hidden'  style={{
             backgroundImage: `linear-gradient(to right, #111111 0%, rgba(17, 17, 17, 0) 100%),url(${imgs})`,
             backgroundSize: 'cover',
             backgroundPosition:'center'

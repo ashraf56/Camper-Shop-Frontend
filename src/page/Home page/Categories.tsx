@@ -55,8 +55,8 @@ const Categories = () => {
                 {
                     categoryData.map(c => (
                         <Card className="w-full  " key={c.id}>
-                            <div className=' overflow-hidden  h-[400px] md:h-[550px]  '  >
-                                <img src={`${c.imageUrl}`} width={500} className='  min-h-full  transition duration-500 ease-in-out  hover:scale-125' alt="imgs" />
+                            <div className=' overflow-hidden  h-[400px] md:h-[500px]  '  >
+                                <img src={`${c.imageUrl}`} width={600} className='  min-h-full  transition duration-500 ease-in-out  hover:scale-125' alt="imgs" />
                             </div>
 
                             <CardHeader>
