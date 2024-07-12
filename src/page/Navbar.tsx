@@ -2,8 +2,6 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import logo from "@/assets/mountain.png"
-import cart from "@/assets/cart.svg"
-import order from "@/assets/orders.svg"
 import menu from "@/assets/menus.svg"
 import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 
@@ -87,7 +85,7 @@ const Navbar = () => {
                 <SheetContent>
                     <SheetHeader>
                         <SheetDescription>
-                            <nav className="ml-auto flex flex-col gap-6">
+                            <nav className="ml-auto flex flex-col gap-6 mt-5">
                                 <Button variant={'outline'} size={"default"} >
                                     <Link to={'/'}
                                     >
@@ -121,7 +119,7 @@ const Navbar = () => {
                                     <Link to={'/products'}
                                     >
                                         <div className="flex gap-2">
-                                            <img src={order} width={20} height={20} />
+                                        <ShoppingBagIcon className="h-5 w-5 text-black" />
                                             <p>12</p>
                                         </div>
                                     </Link>
@@ -130,7 +128,7 @@ const Navbar = () => {
                                     <Link to={'/products'}
                                     >
                                         <div className="flex gap-2">
-                                            <img src={cart} width={20} height={20} />
+                                        <ShoppingCartIcon className="w-5 h-5 text-black" />
                                             <p>12</p>
                                         </div>
                                     </Link>
