@@ -1,8 +1,9 @@
+import Productbanner from "@/components/ProductsCompo/Productbanner";
 
 const ProductsPage = () => {
     return (
         <div>
-            All product page
+            <Productbanner/>
         </div>
     );
 };
