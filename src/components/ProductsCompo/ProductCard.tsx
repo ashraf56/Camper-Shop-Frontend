@@ -19,7 +19,7 @@ const ProductCard = ({ name, image, price }: any) => {
                         <img src={image} alt="" className="min-h-full h-52 mb-2" />
                     </div>
                     <CardTitle>{name}</CardTitle>
-                    <CardDescription>{price}</CardDescription>
+                    <CardDescription>${price}</CardDescription>
                 </CardHeader>
                 <CardFooter className="flex ">
                     <Button variant={'outline'}>View Detail</Button>
