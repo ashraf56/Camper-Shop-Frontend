@@ -16,13 +16,13 @@ const ProductDetail = () => {
         <div className="font-CustomFont ">
             <DetailproductBanner />
 
-            <div className=" w-full max-w-5xl my-10  flex container mx-auto justify-center items-center gap-2">
+            <div className=" w-full max-w-5xl my-10   lg:flex container mx-auto justify-center items-center gap-2">
                 {/* Product image */}
                 <div>
                     <img src={productimg} className="w-full max-w-7xl" />
                 </div>
                 {/* product rest info */}
-                <div className="px-2">
+                <div className="px-2 pt-4 lg:pt-0">
                     <p className="tracking-wide text-lg">Tents</p>
                     <h1 className="font-bold text-3xl pb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, reprehenderit?</h1>
                     <p>
