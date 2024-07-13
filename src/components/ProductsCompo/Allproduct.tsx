@@ -17,36 +17,43 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 const bestsellings = [
     {
+        id:1,
         name: "Deluxe Camping Tent",
         price: 199.99,
         image: `${imgs}`
     },
     {
+        id:2,
         name: "Portable Camping Stove",
         price: 89.99,
         image: `${imgs}`
     },
     {
+        id:3,
         name: "Waterproof Hiking Backpack",
         price: 129.99,
         image: `${imgs}`
     },
     {
+        id:4,
         name: "Waterproof Hiking Backpack",
         price: 129.99,
         image: `${imgs}`
     },
     {
+        id:5,
         name: "Waterproof Hiking Backpack",
         price: 129.99,
         image: `${imgs}`
     },
     {
+        id:6,
         name: "Waterproof Hiking Backpack",
         price: 129.99,
         image: `${imgs}`
     },
     {
+        id:7,
         name: "Waterproof Hiking Backpack",
         price: 129.99,
         image: `${imgs}`

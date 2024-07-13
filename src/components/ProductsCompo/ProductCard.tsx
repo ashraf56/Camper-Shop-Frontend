@@ -7,9 +7,10 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Link } from "react-router-dom";
 
 
-const ProductCard = ({ name, image, price }: any) => {
+const ProductCard = ({ name, image, price,id }: any) => {
 
     return (
         <div >
@@ -22,7 +23,9 @@ const ProductCard = ({ name, image, price }: any) => {
                     <CardDescription>${price}</CardDescription>
                 </CardHeader>
                 <CardFooter className="flex ">
-                    <Button variant={'outline'}>View Detail</Button>
+                    <Button variant={'outline'}>
+                        <Link to={`/products/${id}`}>View Detail</Link>
+                    </Button>
                 </CardFooter>
             </Card>
 

@@ -12,7 +12,7 @@ const Hero = () => {
             </div>
 
 
-            <div className='  md:absolute  md:bottom-10 lg:bottom-14'>
+            <div className='  md:absolute  md:bottom-10 lg:bottom-20'>
                 <Herocard></Herocard>
 
             </div>
