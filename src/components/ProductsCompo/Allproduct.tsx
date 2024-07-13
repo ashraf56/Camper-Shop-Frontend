@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
-const bestsellings = [
+ const bestsellings = [
     {
         id:1,
         name: "Deluxe Camping Tent",
