@@ -16,45 +16,45 @@ const Carts = () => {
             <div className="container pt-5">
                 <h1 className="font-semibold text-xl">View all Carts</h1>
             </div>
-            <div className="flex my-10 justify-center items-center gap-3 container">
+          {/* here is   all carts  */}
+            <div className="lg:flex my-10 justify-center items-center gap-3 container">
                 <div className="w-full">
                     <AllCart quantity={quantity} setquantity={setquantity}></AllCart>
-
-
                 </div>
-                <div className="w-full">
+                {/* payment checkout */}
+                <div className="w-full mt-4 lg:mt-0">
                     <Card >
                         <CardHeader>
                             <CardTitle>
                                 Payment
-                         </CardTitle>   
-                  </CardHeader>
-                  <CardContent className="gap-y-5">
-                                <div className="flex justify-between mb-3 container">
-                                    <p>Total Price</p>
-                                    <p>$200.00</p>
-                                </div>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="gap-y-5">
+                            <div className="flex justify-between mb-3 container">
+                                <p>Total Price</p>
+                                <p>$200.00</p>
+                            </div>
 
-                                <div className="flex justify-between mb-3  container">
-                                    <p>Total Items</p>
-                                    <p>20</p>
-                                </div>
-                                <hr className="mt-1" />
-                                <div className="flex  flex-col mb-3  container">
-                                    <p className="text-lg font-medium">Delivery</p>
-                                    <p className="text-sm ">Shipped by CampGear</p>
-                                </div>
-                                <hr className="mt-1 mb-3 " />
-                                <div className="flex justify-between container">
-                                    <p className="text-xl font-semibold">Order total<span className="text-sm font-light ps-2">(Vat)</span></p>
-                                    <p className="text-lg font-semibold">$20.00</p>
-                                </div>
-                                <div className="w-full mt-4">
-                                    <Button size={'lg'} className="uppercase w-full h-12">
-                                        Checkout
-                                    </Button>
-                                </div>
-                            </CardContent>
+                            <div className="flex justify-between mb-3  container">
+                                <p>Total Items</p>
+                                <p>20</p>
+                            </div>
+                            <hr className="mt-1" />
+                            <div className="flex  flex-col mb-3  container">
+                                <p className="text-lg font-medium">Delivery</p>
+                                <p className="text-sm ">Shipped by CampGear</p>
+                            </div>
+                            <hr className="mt-1 mb-3 " />
+                            <div className="flex justify-between container">
+                                <p className="text-xl font-semibold">Order total<span className="text-sm font-light ps-2">(Vat)</span></p>
+                                <p className="text-lg font-semibold">$20.00</p>
+                            </div>
+                            <div className="w-full mt-4">
+                                <Button size={'lg'} className="uppercase w-full h-12">
+                                    Checkout
+                                </Button>
+                            </div>
+                        </CardContent>
                     </Card>
                 </div>
             </div>

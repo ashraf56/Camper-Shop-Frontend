@@ -1,8 +1,11 @@
+import ManageProduct from "@/components/ProductsCompo/ManageProduct";
+import ProductMangementBanner from "@/components/ProductsCompo/ProductMangementBanner";
 
 const Productmanagment = () => {
     return (
         <div>
-            product create 
+        <ProductMangementBanner/>
+        <ManageProduct></ManageProduct>
         </div>
     );
 };

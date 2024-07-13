@@ -42,7 +42,7 @@ const Navbar = () => {
                     </Link>
                 </Button>
                 <Button variant={'ghost'} size={"default"} className="uppercase bg-transparent hover:bg-transparent" >
-                    <Link to={'/products'}
+                    <Link to={'/productmanager'}
                     >
                         Products Management
                     </Link>
@@ -105,7 +105,7 @@ const Navbar = () => {
                                     </Link>
                                 </Button>
                                 <Button variant={'outline'} size={"default"} >
-                                    <Link to={'/products'}
+                                    <Link to={'/productmanager'}
                                     >
                                         Products Management
                                     </Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
                                     </Link>
                                 </Button>
                                 <Button variant={'outline'} size={"default"} >
-                                    <Link to={'/products'}
+                                    <Link to={'/carts'}
                                     >
                                         <div className="flex gap-2">
                                         <ShoppingCartIcon className="w-5 h-5 text-black" />
