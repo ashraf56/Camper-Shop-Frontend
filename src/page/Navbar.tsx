@@ -62,7 +62,7 @@ const Navbar = () => {
                     </Link>
                 </Button>
                 <Button variant={'ghost'} size={"default"} className="bg-transparent hover:bg-transparent"  >
-                    <Link to={'/products'}
+                    <Link to={'/carts'}
                     >
                         <div className="flex gap-2 text-white">
                         <ShoppingCartIcon className="w-5 h-5 text-white" />

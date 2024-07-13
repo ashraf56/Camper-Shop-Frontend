@@ -5,10 +5,10 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
     return (
         <div className="w-full min-h-screen relative">
-     
-                <Navbar></Navbar>
+
+            <Navbar></Navbar>
             <Outlet></Outlet>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

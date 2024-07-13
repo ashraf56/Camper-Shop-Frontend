@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import productimg from '@/assets/shirsts.jpg'
-import DetailproductBanner from "@/components/ProductsCompo/DetailproductBanner";
+import HelperBanner from "@/components/ProductsCompo/HelperBanner";
 import { CheckIcon, MinusIcon, PlusIcon, StarIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -14,7 +14,7 @@ const ProductDetail = () => {
 
     return (
         <div className="font-CustomFont ">
-            <DetailproductBanner />
+            <HelperBanner />
 
             <div className=" w-full max-w-5xl my-10   lg:flex container mx-auto justify-center items-center gap-2">
                 {/* Product image */}
