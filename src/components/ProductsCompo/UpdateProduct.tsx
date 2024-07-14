@@ -11,13 +11,14 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
 
 const UpdateProduct = ({invoice}:any) => {
     return (
         <div>
             <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Upadete a Product</Button>
+                <Button size={'icon'} ><PencilSquareIcon className="h-6 w-6  text-white" /></Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

@@ -1,6 +1,5 @@
 
 import imgs from '@/assets/abouthero.jpg'
-import { Input } from '../ui/input';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -11,8 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from '../ui/button';
 import { useState } from 'react';
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { AdjustmentsHorizontalIcon,TrashIcon } from '@heroicons/react/24/outline';
 import {
     Table,
     TableBody,
@@ -73,17 +71,8 @@ const ManageProduct = () => {
     const [position, setPosition] = useState("lowtohigh")
     return (
         <div className='mx-auto flex flex-col justify-center items-center container my-6  font-CustomFont'>
-            <div>
-                <h1 className="text-center uppercase font-CustomFont pb-1 text-3xl font-bold">ALl Products</h1>
-                <p className="text-center text-sm font-light pb-5  uppercase tracking-[0.2em]">Top Picks for Your Outdoor Adventures</p>
-
-            </div>
+          
             <div className='flex flex-col my-5 w-full container gap-4'>
-                <div className="flex w-full max-w-xl mx-auto items-center relative rounded-2xl ">
-                    <Input type="search" placeholder="Search products" className=' ps-14 rounded-xl h-12 ' />
-                    <Button variant={'ghost'} className='absolute left-0' ><MagnifyingGlassIcon className="h-6 w-6 text-black" />
-                    </Button>
-                </div>
                 <div className=' flex justify-between gap-4 w-full'>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -109,9 +98,10 @@ const ManageProduct = () => {
             <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[200px]">Invoice</TableHead>
+          <TableHead className="w-[200px]">Product name</TableHead>
           <TableHead>Status</TableHead>
           <TableHead>Method</TableHead>
+          <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -120,7 +110,11 @@ const ManageProduct = () => {
             <TableCell className="font-medium">{invoice.name}</TableCell>
             <TableCell className="font-medium">{invoice.price}</TableCell>
             <TableCell className="font-medium">
-               <UpdateProduct invoice={invoice}/>
+              
+            </TableCell>
+            <TableCell className="font-medium flex gap-3">            
+            <UpdateProduct invoice={invoice}/>
+              <Button size={'icon'}><TrashIcon className="h-6 w-6 text-white" /> </Button>
             </TableCell>
           </TableRow>
         ))}
