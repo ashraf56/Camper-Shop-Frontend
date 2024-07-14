@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseApi } from "../api/api";
 
 
@@ -31,6 +32,14 @@ const productApi = baseApi.injectEndpoints({
 
             })
         }),
+        upadateProduct: build.mutation({
+            query: (info) => ({
+                url: `/products/${info.id}`,
+                method: "PUT",
+                body:info.data
+
+            })
+        }),
     }),
 })
 
@@ -39,4 +48,4 @@ const productApi = baseApi.injectEndpoints({
 export const { useGetproductsQuery,
     useGetSingleProductQuery,
     useCreateProductMutation,
-    useDeleteaProductMutation } = productApi
+    useDeleteaProductMutation ,useUpadateProductMutation} = productApi
