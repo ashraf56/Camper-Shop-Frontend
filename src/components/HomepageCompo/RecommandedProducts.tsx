@@ -1,29 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ProductCard from "@/components/ProductsCompo/ProductCard";
-import imgs from "@/assets/tents.jpg"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useGetproductsQuery } from "@/redux/feature/productApi";
 
-const bestsellings = [
-    {
-        name: "Deluxe Camping Tent",
-        price: 199.99,
-        image: `${imgs}`
-    },
-    {
-        name: "Portable Camping Stove",
-        price: 89.99,
-        image: `${imgs}`
-    },
-    {
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    }
-]
 
 
 const RecommendedProducts = () => {
+
+    const { data, isLoading } = useGetproductsQuery(undefined,{pollingInterval:1000})
+
+
+    if (isLoading) {
+        return <p>loading...</p>
+    }
+
     return (
         <div className="my-10  flex flex-col  mx-auto font-CustomFont">
             <div>
@@ -33,7 +24,7 @@ const RecommendedProducts = () => {
             </div>
             <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto px-5">
                 {
-                    bestsellings?.map((b: any) => (
+                    data.data.slice(2,5)?.map((b: any) => (
                         <ProductCard {...b} ></ProductCard>
                     ))
                 }

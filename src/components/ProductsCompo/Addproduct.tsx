@@ -17,13 +17,13 @@ import { useCreateProductMutation } from "@/redux/feature/productApi";
 
 export function Addproduct() {
 
-const[createProduct,{data}]=useCreateProductMutation()
+const[createProduct]= useCreateProductMutation()
 
-console.log(data);
+
 
     const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit = (data:any) => {
+    const onSubmit =  (data:any) => {
         
 
         const productInfo ={
@@ -36,10 +36,12 @@ console.log(data);
             category:data.category
         }
 
-        createProduct(productInfo)
-
+       
+         createProduct(productInfo)
+      
+    
+       
 reset()
-
     }
 
     return (

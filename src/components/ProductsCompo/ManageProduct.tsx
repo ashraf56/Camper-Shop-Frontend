@@ -11,17 +11,30 @@ import {
   } from "@/components/ui/table"
 import { Addproduct } from './Addproduct';
 import UpdateProduct from './UpdateProduct';
-import { useGetproductsQuery } from '@/redux/feature/productApi';
+import { useDeleteaProductMutation, useGetproductsQuery } from '@/redux/feature/productApi';
+import { toast } from 'sonner';
    
 
 
 const ManageProduct = () => {
     const { data, isLoading } = useGetproductsQuery(undefined,{pollingInterval:1000})
 
-
+const[deleteaProduct,]=useDeleteaProductMutation()
     if (isLoading) {
         return <p>loading...</p>
     }
+
+const handleDelet = async (id:string)=>{
+  
+try {
+  await deleteaProduct(id)
+toast.success('data deleted successfully')
+} catch (error:any) {
+  toast.error( error)
+}
+  
+}
+
 
     return (
         <div className='mx-auto flex flex-col justify-center items-center container my-6  font-CustomFont'>
@@ -58,7 +71,7 @@ const ManageProduct = () => {
     
             <TableCell className="font-medium flex gap-3">            
             <UpdateProduct p={p}/>
-              <Button size={'icon'}><TrashIcon className="h-6 w-6 text-white" /> </Button>
+              <Button size={'icon'} onClick={()=> handleDelet(p._id)} ><TrashIcon className="h-6 w-6 text-white" /> </Button>
             </TableCell>
           </TableRow>
         ))}
