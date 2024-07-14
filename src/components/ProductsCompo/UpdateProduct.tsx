@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 
-const UpdateProduct = ({invoice}:any) => {
+const UpdateProduct = ({p}:any) => {
     return (
         <div>
             <Dialog>
@@ -22,7 +22,7 @@ const UpdateProduct = ({invoice}:any) => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>{invoice.id}</DialogTitle>
+                    <DialogTitle>{p.name}</DialogTitle>
                     <DialogDescription>
                         Make changes to your profile here. Click save when you're done.
                     </DialogDescription>

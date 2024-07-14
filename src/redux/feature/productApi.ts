@@ -7,17 +7,26 @@ const productApi = baseApi.injectEndpoints({
             query: () => ({
                 url: '/products',
                 method: "GET",
-            })
+            }),
+            providesTags:['products']
+
         }),
         getSingleProduct: build.query({
             query: (slug:string) => ({
                 url: `/products/${slug}`,
                 method: "GET",
             })
-        })
+        }),
+        createProduct: build.mutation({
+            query: (data) => ({
+                url: `/products/create-product`,
+                method: "POST",
+                body:data
+            })
+        }),
     }),
 })
 
 
 
-export const {useGetproductsQuery, useGetSingleProductQuery} = productApi
+export const {useGetproductsQuery, useGetSingleProductQuery,useCreateProductMutation} = productApi

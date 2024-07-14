@@ -24,7 +24,7 @@ const ProductDetail = () => {
                 </div>
                 {/* product rest info */}
                 <div className="px-2 pt-4 lg:pt-0  w-full">
-                    <p className="tracking-wide text-lg">Tents</p>
+                    <p className="tracking-wide text-lg">{data.data.category}</p>
                     <h1 className="font-bold text-3xl pb-2">{data.data.name}</h1>
                     <p>
                         {data.data.description}
