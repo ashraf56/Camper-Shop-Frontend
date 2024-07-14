@@ -1,5 +1,5 @@
-
-import imgs from '@/assets/abouthero.jpg'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
 import ProductCard from './ProductCard';
 import { Input } from '../ui/input';
 import {
@@ -11,57 +11,23 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from '../ui/button';
-import { useState } from 'react';
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { useGetproductsQuery } from '@/redux/feature/productApi';
 
- const bestsellings = [
-    {
-        id:1,
-        name: "Deluxe Camping Tent",
-        price: 199.99,
-        image: `${imgs}`
-    },
-    {
-        id:2,
-        name: "Portable Camping Stove",
-        price: 89.99,
-        image: `${imgs}`
-    },
-    {
-        id:3,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:4,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:5,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:6,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:7,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    }
-]
+
 
 const Allproduct = () => {
-    const [position, setPosition] = useState("lowtohigh")
+
+    const {data, isLoading}=useGetproductsQuery(undefined)
+
+
+if (isLoading) {
+    return <p>loading...</p>
+}
+
+
+
     return (
         <div className='mx-auto flex flex-col justify-center items-center container my-6  font-CustomFont'>
             <div>
@@ -84,7 +50,7 @@ const Allproduct = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuSeparator />
-                            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                            <DropdownMenuRadioGroup>
                                 <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
@@ -98,7 +64,7 @@ const Allproduct = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuSeparator />
-                            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                            <DropdownMenuRadioGroup>
                                 <DropdownMenuRadioItem value="lowtohigh">Low to high</DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="hightolow">High to low</DropdownMenuRadioItem>
                             </DropdownMenuRadioGroup>
@@ -110,8 +76,8 @@ const Allproduct = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
-                    bestsellings.map(b => (
-                        <ProductCard {...b} />
+                    data.data.map((b: any) => (
+                        <ProductCard {...b}  />
                     ))
                 }
             </div>

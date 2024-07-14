@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 
 
-const ProductCard = ({ name, image, price,id }: any) => {
+const ProductCard = ({ name, image, price,_id }: any) => {
 
     return (
         <div >
@@ -24,7 +24,7 @@ const ProductCard = ({ name, image, price,id }: any) => {
                 </CardHeader>
                 <CardFooter className="flex ">
                     <Button variant={'outline'}>
-                        <Link to={`/products/${id}`}>View Detail</Link>
+                        <Link to={`/products/${_id}`}>View Detail</Link>
                     </Button>
                 </CardFooter>
             </Card>
