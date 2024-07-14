@@ -8,10 +8,16 @@ const productApi = baseApi.injectEndpoints({
                 url: '/products',
                 method: "GET",
             })
+        }),
+        getSingleProduct: build.query({
+            query: (slug:string) => ({
+                url: `/products/${slug}`,
+                method: "GET",
+            })
         })
     }),
 })
 
 
 
-export const {useGetproductsQuery} = productApi
+export const {useGetproductsQuery, useGetSingleProductQuery} = productApi

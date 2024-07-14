@@ -19,12 +19,12 @@ import { useGetproductsQuery } from '@/redux/feature/productApi';
 
 const Allproduct = () => {
 
-    const {data, isLoading}=useGetproductsQuery(undefined)
+    const { data, isLoading } = useGetproductsQuery(undefined)
 
 
-if (isLoading) {
-    return <p>loading...</p>
-}
+    if (isLoading) {
+        return <p>loading...</p>
+    }
 
 
 
@@ -77,7 +77,7 @@ if (isLoading) {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     data.data.map((b: any) => (
-                        <ProductCard {...b}  />
+                        <ProductCard {...b} />
                     ))
                 }
             </div>

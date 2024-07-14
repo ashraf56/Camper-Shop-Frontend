@@ -1,16 +1,17 @@
-import { useParams } from "react-router-dom";
-import productimg from '@/assets/shirsts.jpg'
+/* eslint-disable react-hooks/rules-of-hooks */
 import HelperBanner from "@/components/ProductsCompo/HelperBanner";
 import { CheckIcon, MinusIcon, PlusIcon, StarIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-
+import { useParams } from 'react-router-dom';
+import { useGetSingleProductQuery } from '@/redux/feature/productApi';
 const ProductDetail = () => {
-    const data = useParams()
+    const { id: slug } = useParams()
+    const { data, isLoading } = useGetSingleProductQuery(slug as string)
+
     console.log(data);
-    const [quantity, setquantity] = useState(0)
-
-
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
     return (
         <div className="font-CustomFont ">
@@ -18,21 +19,21 @@ const ProductDetail = () => {
 
             <div className=" w-full max-w-5xl my-10   lg:flex container mx-auto justify-center items-center gap-2">
                 {/* Product image */}
-                <div>
-                    <img src={productimg} className="w-full max-w-7xl" />
+                <div className='w-full'>
+                    <img src={data.data.image} className="w-full max-w-7xl" />
                 </div>
                 {/* product rest info */}
-                <div className="px-2 pt-4 lg:pt-0">
+                <div className="px-2 pt-4 lg:pt-0  w-full">
                     <p className="tracking-wide text-lg">Tents</p>
-                    <h1 className="font-bold text-3xl pb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, reprehenderit?</h1>
+                    <h1 className="font-bold text-3xl pb-2">{data.data.name}</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus magni nostrum doloremque sint incidunt, ratione aliquam quisquam dicta voluptas vel tempore ut similique praesentium et quo quis blanditiis? Magnam, alias.
+                        {data.data.description}
                     </p>
 
 
                     <p className="flex gap-1 pt-2 ">
                         <StarIcon className="h-6 w-6 text-yellow-500" />
-                        <span>4.0</span>
+                        <span>{data.data.rating}</span>
                     </p>
                     <div className="flex justify-between items-center flex-row-reverse mt-5">
                         <div className=" flex items-center justify-end">
@@ -40,9 +41,9 @@ const ProductDetail = () => {
                                 <CheckIcon className=" w-5 h-5  text-white" />
 
                             </Button>
-                            <p className="ps-2 text-sm">100 items available</p>
+                            <p className="ps-2 text-sm">{data.data.stockQuantity} items available</p>
                         </div>
-                        <p className="text-3xl  "> $200.00 </p>
+                        <p className="text-3xl  "> ${data.data.price} </p>
                     </div>
 
 
@@ -54,15 +55,15 @@ const ProductDetail = () => {
                                 variant="outline"
                                 size="icon"
                                 className="h-8 w-8  rounded-full"
-                                onClick={() => setquantity(quantity - 1)}
-                                disabled={quantity <= 0}
+
+
                             >
                                 <MinusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Decrease</span>
                             </Button>
                             <div className="text-center">
                                 <div className="text-7xl font-bold tracking-tighter">
-                                    {quantity}
+                                    12
                                 </div>
                                 <div className="text-[0.70rem] uppercase text-muted-foreground">
                                     items
@@ -71,10 +72,7 @@ const ProductDetail = () => {
                             <Button
                                 variant="outline"
                                 size="icon"
-                                className="h-8 w-8 shrink-0 rounded-full"
-                                onClick={() => setquantity(quantity + 1)}
-                                disabled={quantity >= 10}
-                            >
+                                className="h-8 w-8 shrink-0 rounded-full" >
                                 <PlusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Increase</span>
                             </Button>
