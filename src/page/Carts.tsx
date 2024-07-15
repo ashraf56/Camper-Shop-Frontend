@@ -2,14 +2,17 @@ import AllCart from "@/components/CartspageComponent/AllCart";
 import HelperBanner from "@/components/ProductsCompo/HelperBanner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
-
-
-
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 
 const Carts = () => {
-    const [quantity, setquantity] = useState(0)
+    
+    const carts = useAppSelector((state)=>state.cartsState.carts)
+    const items = useAppSelector((state) => state.cartsState.totalItem)
+
+    const dispatch = useAppDispatch()
+
+
     return (
         <div className=" font-CustomFont">
             <HelperBanner />
@@ -19,7 +22,7 @@ const Carts = () => {
           {/* here is   all carts  */}
             <div className="lg:flex my-10 justify-center items-center gap-3 container">
                 <div className="w-full">
-                    <AllCart quantity={quantity} setquantity={setquantity}></AllCart>
+                    <AllCart carts={carts} dispatch={dispatch} items={items}></AllCart>
                 </div>
                 {/* payment checkout */}
                 <div className="w-full mt-4 lg:mt-0">
@@ -37,7 +40,7 @@ const Carts = () => {
 
                             <div className="flex justify-between mb-3  container">
                                 <p>Total Items</p>
-                                <p>20</p>
+                                <p>{items}</p>
                             </div>
                             <hr className="mt-1" />
                             <div className="flex  flex-col mb-3  container">

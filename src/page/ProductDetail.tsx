@@ -4,14 +4,43 @@ import { CheckIcon, MinusIcon, PlusIcon, StarIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button";
 import { useParams } from 'react-router-dom';
 import { useGetSingleProductQuery } from '@/redux/feature/productApi';
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { addItemstoCart, decrement, increment } from "@/redux/feature/carts/cartSlice";
+import { toast } from "sonner";
 const ProductDetail = () => {
     const { id: slug } = useParams()
     const { data, isLoading } = useGetSingleProductQuery(slug as string)
+    const items = useAppSelector((state) => state.cartsState.totalItem)
 
-    console.log(data);
+    const dispatch = useAppDispatch()
     if (isLoading) {
         return <p>Loading...</p>
     }
+    
+    type CartsInfo = {
+        name: string
+        price: number
+        stockQuantity: number
+        image: string
+        category: string
+        totalItem: number
+    }
+    const handleAddtocart = () => {
+
+        const cartsInfo: CartsInfo = {
+            name: data.data.name,
+            price: data.data.price,
+            stockQuantity: data.data.stockQuantity,
+            image: data.data.image,
+            category: data.data.category,
+            totalItem: items!
+        }
+
+        dispatch(addItemstoCart(cartsInfo))
+        toast.success('success')
+
+    }
+
 
     return (
         <div className="font-CustomFont ">
@@ -55,15 +84,15 @@ const ProductDetail = () => {
                                 variant="outline"
                                 size="icon"
                                 className="h-8 w-8  rounded-full"
-
-
+                                onClick={() => dispatch(decrement())}
+                                disabled={items! <= 0}
                             >
                                 <MinusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Decrease</span>
                             </Button>
                             <div className="text-center">
                                 <div className="text-7xl font-bold tracking-tighter">
-                                    12
+                                    {items}
                                 </div>
                                 <div className="text-[0.70rem] uppercase text-muted-foreground">
                                     items
@@ -72,6 +101,8 @@ const ProductDetail = () => {
                             <Button
                                 variant="outline"
                                 size="icon"
+                                onClick={() => dispatch(increment())}
+                                disabled={items! >= data.data.stockQuantity}
                                 className="h-8 w-8 shrink-0 rounded-full" >
                                 <PlusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Increase</span>
@@ -81,7 +112,7 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="w-full mt-14">
-                        <Button className="w-full">Add to cart</Button>
+                        <Button className="w-full" onClick={handleAddtocart}>Add to cart</Button>
                     </div>
                 </div>
 

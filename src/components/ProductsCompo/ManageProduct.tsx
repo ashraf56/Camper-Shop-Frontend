@@ -60,7 +60,7 @@ const ManageProduct = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.data.map((p: any) => (
+            {data?.data?.map((p: any) => (
               <TableRow key={p._id}>
                 <TableCell className="font-medium">{p.name}</TableCell>
                 <TableCell className="font-medium">{p.description.slice(0, 40)}...</TableCell>

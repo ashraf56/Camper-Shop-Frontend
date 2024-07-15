@@ -1,64 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import imgs from '@/assets/abouthero.jpg'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { Button } from '../ui/button';
 import { MinusIcon, PlusIcon, TrashIcon } from '@radix-ui/react-icons';
-
-const bestsellings = [
-    {
-        id:1,
-        name: "Deluxe Camping Tent",
-        price: 199.99,
-        image: `${imgs}`
-    },
-    {
-        id:2,
-        name: "Portable Camping Stove",
-        price: 89.99,
-        image: `${imgs}`
-    },
-    {
-        id:3,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:4,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:5,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:6,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    },
-    {
-        id:7,
-        name: "Waterproof Hiking Backpack",
-        price: 129.99,
-        image: `${imgs}`
-    }
-]
+import { decrementItem, incrementItem } from '@/redux/feature/carts/cartSlice';
 
 
-const AllCart = ({quantity,setquantity}:number|any) => {
-    
+
+const AllCart = ({carts,dispatch,items}:any) => {
+
+
+    const handleDecrement = (itemname: string) => {
+        dispatch(decrementItem(itemname));
+    };
+    const handleIncrement = (itemname: string) => {
+        dispatch(incrementItem(itemname));
+    };
+
+
     return (
 <div className="scrollbar scrollbar-thin h-80 overflow-y-scroll">
       <div className='w-full grid gap-3 '>
             {
-                bestsellings.map(bs=>(
+                carts?.map((bs:any)=>(
 
                     <Card className=' container flex relative w-full gap-0 items-center md:max-w-lg lg:max-w-2xl xl:max-w-full h-autofont-CustomFont'>
                         <Avatar>
@@ -76,15 +41,14 @@ const AllCart = ({quantity,setquantity}:number|any) => {
                                 variant="outline"
                                 size="icon"
                                 className="h-6 w-6  rounded-full"
-                                onClick={() => setquantity(quantity - 1)}
-                                disabled={quantity <= 1}
+                                onClick={()=>dispatch(handleDecrement(bs.name))}
                             >
                                 <MinusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Decrease</span>
                             </Button>
                             <div className="text-center">
                                 <div className="text-md font-bold tracking-tighter">
-                                    {quantity}
+                                   {items}
                                 </div>
                                 
                             </div>
@@ -92,8 +56,8 @@ const AllCart = ({quantity,setquantity}:number|any) => {
                                 variant="outline"
                                 size="icon"
                                 className="h-6 w-6 shrink-0 rounded-full"
-                                onClick={() => setquantity(quantity + 1)}
-                                disabled={quantity >= 10}
+                                onClick={()=>handleIncrement(bs.name)}
+                               
                             >
                                 <PlusIcon className="h-4 w-4 text-black" />
                                 <span className="sr-only">Increase</span>
