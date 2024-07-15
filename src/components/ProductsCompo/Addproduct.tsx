@@ -14,43 +14,49 @@ import {  useForm } from "react-hook-form";
 import { Textarea } from "../ui/textarea";
 import { categoryData } from "@/utills/categories"
 import { useCreateProductMutation } from "@/redux/feature/productApi";
+import { toast } from "sonner";
 
 export function Addproduct() {
 
-const[createProduct]= useCreateProductMutation()
-
+const[createProduct,{data}]= useCreateProductMutation()
 
 
     const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit =  (data:any) => {
-        
+    const onSubmit = async (info:any) => {
 
-        const productInfo ={
-            name: data.name,
-            description: data.description,
-            price: Number(data.price),
-            rating: data.rating,
-            stockQuantity: Number(data.stockQuantity),
-            image: data.image,
-            category:data.category
-        }
+    const productInfo ={
+        name: info.name,
+        description: info.description,
+        price: Number(info.price),
+        rating: info.rating,
+        stockQuantity: Number(info.stockQuantity),
+        image: info.image,
+        category:info.category
+    }
 
-       
-         createProduct(productInfo)
-      
+ try {
+   await createProduct(productInfo)
+   if (!data) {
+   return toast.error("unable to create a Product")
+   }
+     toast.success('product created')
+    reset()
+ } catch (error) {
+    toast.error('unable to create a Product')
+    console.log(error);
     
-       
-reset()
+ }
     }
 
     return (
-        <Dialog>
+      <div className="font-CustomFont">
+          <Dialog >
             <DialogTrigger asChild>
                 <Button variant="outline">Add a Product</Button>
             </DialogTrigger>
 
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[425px] font-CustomFont">
                 
                 <DialogHeader>
                     <DialogDescription>
@@ -100,7 +106,7 @@ reset()
                             <Label htmlFor="name" className="text-right">
                                 category
                             </Label>
-                            <select {...register("category")} className="col-span-3">
+                            <select {...register("category")} className="col-span-3 font-CustomFont">
                                 {
                                     categoryData.map(c => (
                                         <option key={c.id} value={c.name}>{c.name}</option>
@@ -115,5 +121,6 @@ reset()
                     </DialogFooter></form>
             </DialogContent>
         </Dialog>
+      </div>
     )
 }

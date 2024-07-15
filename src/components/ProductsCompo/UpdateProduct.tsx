@@ -20,8 +20,8 @@ import { useEffect } from "react";
 
 const UpdateProduct = ({ p }: any) => {
 
-    const { register, handleSubmit, reset ,setValue} = useForm();
-    const [upadateProduct] = useUpadateProductMutation()
+    const { register, handleSubmit, reset, setValue } = useForm();
+    const [upadateProduct, { isError }] = useUpadateProductMutation()
 
     useEffect(() => {
         // it is for geting leatest product info when modal is opened
@@ -36,28 +36,33 @@ const UpdateProduct = ({ p }: any) => {
         }
     }, [p, setValue]);
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async (info: any) => {
 
 
         const productInfo = {
             id: p._id,
             data: {
-                name: data.name,
-                description: data.description,
-                price: Number(data.price),
-                rating: data.rating,
-                stockQuantity: Number(data.stockQuantity),
-                image: data.image,
-                category: data.category
+                name: info.name,
+                description: info.description,
+                price: Number(info.price),
+                rating: info.rating,
+                stockQuantity: Number(info.stockQuantity),
+                image: info.image,
+                category: info.category
             }
         }
-        console.log(productInfo);
 
-        upadateProduct(productInfo)
+        try {
+            await upadateProduct(productInfo)
+            if (isError) {
+               return toast.error('unable to update')
+            }
+            toast.success('data updated')
 
-        toast.success('data updated')
-
-        reset()
+            reset()
+        } catch (error) {
+            toast.error('unable to update')
+        }
     }
 
 
@@ -68,7 +73,7 @@ const UpdateProduct = ({ p }: any) => {
                     <Button size={'icon'} ><PencilSquareIcon className="h-6 w-6  text-white" /></Button>
                 </DialogTrigger>
 
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-[425px] font-CustomFont">
                     <DialogHeader>
                         <DialogTitle>{p.name}</DialogTitle>
 
