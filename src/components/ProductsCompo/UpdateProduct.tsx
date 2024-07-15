@@ -16,105 +16,122 @@ import { useForm } from "react-hook-form";
 import { Textarea } from "../ui/textarea";
 import { categoryData } from "@/utills/categories";
 import { toast } from "sonner";
+import { useEffect } from "react";
 
-const UpdateProduct = ({p}:any) => {
+const UpdateProduct = ({ p }: any) => {
 
-    const { register, handleSubmit, reset } = useForm();
-const[upadateProduct]=useUpadateProductMutation()
-    const onSubmit =  (data:any) => {
-        
+    const { register, handleSubmit, reset ,setValue} = useForm();
+    const [upadateProduct] = useUpadateProductMutation()
 
-        const productInfo ={
-            id:p._id,
-           data:{
-            name: data.name,
-            description: data.description,
-            price: Number(data.price),
-            rating: data.rating,
-            stockQuantity: Number(data.stockQuantity),
-            image: data.image,
-            category:data.category
-           }
+    useEffect(() => {
+        // it is for geting leatest product info when modal is opened
+        if (p) {
+            setValue('name', p.name);
+            setValue('description', p.description);
+            setValue('price', p.price);
+            setValue('stockQuantity', p.stockQuantity);
+            setValue('rating', p.rating);
+            setValue('image', p.image);
+            setValue('category', p.category);
         }
-   console.log(productInfo);
-   
-       upadateProduct(productInfo)
-      
-    toast.success('data updated')
-       
-reset()
+    }, [p, setValue]);
+
+    const onSubmit = (data: any) => {
+
+
+        const productInfo = {
+            id: p._id,
+            data: {
+                name: data.name,
+                description: data.description,
+                price: Number(data.price),
+                rating: data.rating,
+                stockQuantity: Number(data.stockQuantity),
+                image: data.image,
+                category: data.category
+            }
+        }
+        console.log(productInfo);
+
+        upadateProduct(productInfo)
+
+        toast.success('data updated')
+
+        reset()
     }
 
 
     return (
         <div>
             <Dialog>
-            <DialogTrigger asChild>
-                <Button size={'icon'} ><PencilSquareIcon className="h-6 w-6  text-white" /></Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                    <DialogTitle>{p.name}</DialogTitle>
-                    
-                </DialogHeader>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="grid gap-4 py-4">
+                <DialogTrigger asChild>
+                    <Button size={'icon'} ><PencilSquareIcon className="h-6 w-6  text-white" /></Button>
+                </DialogTrigger>
 
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Product name
-                            </Label>
-                            <Input defaultValue={p.name}  {...register('name')} placeholder="product name" className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Description
-                            </Label>
-                            <Textarea defaultValue={p.description} placeholder="Type product description here." {...register('description')} className='col-span-3' />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label className="text-right">
-                                Price
-                            </Label>
-                            <Input type="number" defaultValue={p.price} {...register('price')} className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Stock
-                            </Label>
-                            <Input type="number" defaultValue={p.stockQuantity} {...register('stockQuantity')} className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                rating
-                            </Label>
-                            <Input type="text" defaultValue={p.rating} {...register('rating')} className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                Image
-                            </Label>
-                            <Input type="text" defaultValue={p.image} {...register('image')} className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                                category
-                            </Label>
-                            <select defaultChecked={p.category} {...register("category")} className="col-span-3">
-                                {
-                                    categoryData.map(c => (
-                                        <option key={c.id} value={c.name}>{c.name}</option>
-                                    ))
-                                }
-                            </select>
-                        </div>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>{p.name}</DialogTitle>
 
-                    </div>
-                    <DialogFooter>
-                        <Button type="submit">Save changes</Button>
-                    </DialogFooter></form>
-            </DialogContent>
-        </Dialog>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="grid gap-4 py-4">
+
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    Product name
+                                </Label>
+                                <Input defaultValue={p.name}  {...register('name')} placeholder="product name" className="col-span-3" />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    Description
+                                </Label>
+                                <Textarea defaultValue={p.description} placeholder="Type product description here." {...register('description')} className='col-span-3' />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label className="text-right">
+                                    Price
+                                </Label>
+                                <Input type="number" defaultValue={p.price} {...register('price')} className="col-span-3" />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    Stock
+                                </Label>
+                                <Input type="number" defaultValue={p.stockQuantity} {...register('stockQuantity')} className="col-span-3" />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    rating
+                                </Label>
+                                <Input type="text" defaultValue={p.rating} {...register('rating')} className="col-span-3" />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    Image
+                                </Label>
+                                <Input type="text" defaultValue={p.image} {...register('image')} className="col-span-3" />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">
+                                    category
+                                </Label>
+                                <select defaultChecked={p.category} {...register("category")} className="col-span-3">
+                                    {
+                                        categoryData.map(c => (
+                                            <option key={c.id} value={c.name}>{c.name}</option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
+
+                        </div>
+                        <DialogFooter>
+                            <Button type="submit">Save changes</Button>
+                        </DialogFooter></form>
+                </DialogContent>
+
+            </Dialog>
         </div>
     );
 };
