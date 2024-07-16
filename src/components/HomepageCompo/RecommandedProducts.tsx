@@ -22,7 +22,7 @@ const RecommendedProducts = () => {
                 <p className="text-center text-sm font-light pb-5  uppercase tracking-[0.2em]">Top Picks for Your Outdoor Adventures</p>
 
             </div>
-            <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto px-5">
+            <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto ">
                 {
                     data?.data?.slice(2, 5)?.map((b: any) => (
                         <ProductCard {...b} ></ProductCard>

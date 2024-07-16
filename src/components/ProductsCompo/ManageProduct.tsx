@@ -69,7 +69,7 @@ const ManageProduct = () => {
                 <TableCell className="font-medium text-center">{p.category}</TableCell>
                 <TableCell className="font-medium text-center">{p.rating}</TableCell>
 
-                <TableCell className="font-medium flex gap-3">
+                <TableCell className="font-medium flex gap-3 justify-center items-center">
                   <UpdateProduct p={p} />
                   <Button size={'icon'} onClick={() => handleDelet(p._id)} ><TrashIcon className="h-6 w-6 text-white" /> </Button>
                 </TableCell>

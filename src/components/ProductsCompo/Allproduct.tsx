@@ -41,7 +41,7 @@ const Allproduct = () => {
                     <Button variant={'ghost'} className='absolute left-0' ><MagnifyingGlassIcon className="h-6 w-6 text-black" />
                     </Button>
                 </div>
-                <div className=' flex justify-between gap-4 w-full'>
+                <div className=' flex flex-col sm:flex-row justify-between gap-4 w-full items-center'>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" className='gap-2'>
@@ -73,7 +73,7 @@ const Allproduct = () => {
 
 
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5'>
                 {
                     data?.data?.map((b: any) => (
                         <ProductCard {...b} />

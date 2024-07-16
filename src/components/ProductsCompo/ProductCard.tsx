@@ -14,7 +14,7 @@ const ProductCard = ({ name, image, price, _id }: any) => {
 
     return (
         <div >
-            <Card className="w-[350px] h-96 max-w-xl font-CustomFont">
+            <Card className=" w-full md:w-[350px] h-96   font-CustomFont relative">
                 <CardHeader>
                     <div className="mx-auto">
                         <img src={image} alt="" className="min-h-full h-52 mb-2" />
@@ -22,7 +22,7 @@ const ProductCard = ({ name, image, price, _id }: any) => {
                     <CardTitle>{name}</CardTitle>
                     <CardDescription>${price}</CardDescription>
                 </CardHeader>
-                <CardFooter className="flex ">
+                <CardFooter className="flex absolute bottom-0">
                     <Button variant={'outline'}>
                         <Link to={`/products/${_id}`}>View Detail</Link>
                     </Button>

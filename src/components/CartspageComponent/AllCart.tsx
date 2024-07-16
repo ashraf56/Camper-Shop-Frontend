@@ -24,7 +24,7 @@ const AllCart = ({ carts, dispatch }: any) => {
 
                         <Card className=' container flex relative w-full gap-0 items-center md:max-w-lg lg:max-w-2xl xl:max-w-full h-autofont-CustomFont'>
                             <Avatar>
-                                <AvatarImage src={bs.image} className='w-24 h-24 rounded-lg'></AvatarImage>
+                                <AvatarImage src={bs.image} className='w-24 h-24 object-contain rounded-lg'></AvatarImage>
                             </Avatar>
                             <CardHeader>
                                 <CardTitle>
