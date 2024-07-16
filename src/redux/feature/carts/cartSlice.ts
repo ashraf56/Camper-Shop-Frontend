@@ -63,12 +63,22 @@ const cartslice = createSlice({
             state.totalQuantoty -= 1
             state.totalPrice -= cartItem!.price!
         },
-
+        removeCart:(state,action:PayloadAction<string>)=>{
+            const cartItem = state.carts.find(item => item.id === action.payload);
+            if (cartItem) {
+                state.totalQuantoty -= cartItem!.cartQuantity! 
+                state.totalPrice -= cartItem!.price! * cartItem!.cartQuantity!
+                state.carts! = state.carts.filter(item => item.id !== action.payload);
+                
+            }
+         
+        }
+  
     }
 })
 
 
 
-export const { addItemstoCart, incrementItem, decrementItem } = cartslice.actions
+export const { addItemstoCart, incrementItem, decrementItem ,removeCart} = cartslice.actions
 export default cartslice.reducer
 

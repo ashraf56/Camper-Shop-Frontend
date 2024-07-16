@@ -53,7 +53,7 @@ const Carts = () => {
                           <hr className="mt-1 mb-3 " />
                           <div className="flex justify-between container">
                               <p className="text-xl font-semibold">Order total<span className="text-sm font-light ps-2">(Vat)</span></p>
-                              <p className="text-lg font-semibold">$20.00</p>
+                              <p className="text-lg font-semibold">${totalPrice}</p>
                           </div>
                           <div className="w-full mt-4">
                               <Button size={'lg'} className="uppercase w-full h-12">

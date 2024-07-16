@@ -51,9 +51,8 @@ const Allproduct = () => {
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup>
-                                <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-                                <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-                                <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="top">Price</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="bottom">Name</DropdownMenuRadioItem>
                             </DropdownMenuRadioGroup>
                         </DropdownMenuContent>
                     </DropdownMenu>

@@ -4,11 +4,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { Button } from '../ui/button';
 import { MinusIcon, PlusIcon, TrashIcon } from '@radix-ui/react-icons';
-import { decrementItem, incrementItem } from '@/redux/feature/carts/cartSlice';
+import { decrementItem, incrementItem, removeCart } from '@/redux/feature/carts/cartSlice';
+import { toast } from 'sonner';
 
 
 
 const AllCart = ({ carts, dispatch }: any) => {
+
+const handleRemovecart = (id:string)=>{
+    dispatch(removeCart(id))
+    toast.success('cart removed')
+}
+
     return (
         <div className="scrollbar scrollbar-thin h-80 overflow-y-scroll">
             <div className='w-full grid gap-3 '>
@@ -57,7 +64,7 @@ const AllCart = ({ carts, dispatch }: any) => {
                                 </CardContent>
                             </CardHeader>
                             <CardFooter className='items-center bottom-6 absolute right-2'>
-                                <Button size={'icon'}><TrashIcon className="h-6 w-6 text-white" />
+                                <Button size={'icon'} onClick={()=>handleRemovecart(bs.id)}><TrashIcon className="h-6 w-6 text-white" />
                                 </Button>
                             </CardFooter>
 
