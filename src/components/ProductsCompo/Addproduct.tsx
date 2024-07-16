@@ -44,7 +44,7 @@ export function Addproduct() {
             reset()
         } catch (error) {
             toast.error('unable to create a Product')
-            console.log(error);
+          
 
         }
     }
