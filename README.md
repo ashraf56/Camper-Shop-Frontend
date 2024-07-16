@@ -19,6 +19,7 @@
 - MongoDB
 - Typescript
 - ShadCn
+- TailwindCSS
 
 
 # Installation Guideline
