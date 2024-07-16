@@ -16,6 +16,9 @@ import { categoryData } from "@/utills/categories"
 import { useCreateProductMutation } from "@/redux/feature/productApi";
 import { toast } from "sonner";
 
+
+
+
 export function Addproduct() {
 
 const[createProduct,{data}]= useCreateProductMutation()

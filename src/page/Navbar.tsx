@@ -57,13 +57,12 @@ const  totalcarts = useAppSelector((state)=> state.cartsState.carts)
             </nav>
             <nav className="ml-auto hidden lg:flex justify-center ">
                 <Button variant={'ghost'} size={"default"} className="bg-transparent hover:bg-transparent" >
-                    <Link to={'/products'}
-                    >
+                    
                         <div className="flex gap-2 text-white">
                         <ShoppingBagIcon className="h-5 w-5 text-white" />
-                        <p>12</p>
+                        <p>0</p>
                         </div>
-                    </Link>
+                    
                 </Button>
                 <Button variant={'ghost'} size={"default"} className="bg-transparent hover:bg-transparent"  >
                     <Link to={'/carts'}
@@ -120,20 +119,19 @@ const  totalcarts = useAppSelector((state)=> state.cartsState.carts)
                             </nav>
                             <nav className="ml-auto flex flex-col gap-3">
                                 <Button variant={'outline'} size={"default"} >
-                                    <Link to={'/products'}
-                                    >
+                                  
                                         <div className="flex gap-2">
                                         <ShoppingBagIcon className="h-5 w-5 text-black" />
-                                            <p>12</p>
+                                            <p>0</p>
                                         </div>
-                                    </Link>
+                                    
                                 </Button>
                                 <Button variant={'outline'} size={"default"} >
                                     <Link to={'/carts'}
                                     >
                                         <div className="flex gap-2">
                                         <ShoppingCartIcon className="w-5 h-5 text-black" />
-                                            <p>12</p>
+                                        <p>{totalcarts.length || 0}</p>
                                         </div>
                                     </Link>
                                 </Button>
