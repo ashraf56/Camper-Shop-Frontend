@@ -8,74 +8,63 @@ import { decrementItem, incrementItem } from '@/redux/feature/carts/cartSlice';
 
 
 
-const AllCart = ({carts,dispatch,items}:any) => {
-
-
-    const handleDecrement = (itemname: string) => {
-        dispatch(decrementItem(itemname));
-    };
-    const handleIncrement = (itemname: string) => {
-        dispatch(incrementItem(itemname));
-    };
-
-
+const AllCart = ({ carts, dispatch }: any) => {
     return (
-<div className="scrollbar scrollbar-thin h-80 overflow-y-scroll">
-      <div className='w-full grid gap-3 '>
-            {
-                carts?.map((bs:any)=>(
+        <div className="scrollbar scrollbar-thin h-80 overflow-y-scroll">
+            <div className='w-full grid gap-3 '>
+                {
+                    carts?.map((bs: any) => (
 
-                    <Card className=' container flex relative w-full gap-0 items-center md:max-w-lg lg:max-w-2xl xl:max-w-full h-autofont-CustomFont'>
-                        <Avatar>
-                            <AvatarImage src={bs.image} className='w-24 h-24 rounded-lg'></AvatarImage>
-                        </Avatar>
-                    <CardHeader>
-                        <CardTitle>
-                           {bs.name}
-                        </CardTitle>
-                        <CardDescription className=" font-light">$ {bs.price}</CardDescription>
-                        <CardContent>
-                        <div className="">
-                        <div className="flex items-center absolute gap-3 left-36 justify-between ">
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                className="h-6 w-6  rounded-full"
-                                onClick={()=>dispatch(handleDecrement(bs.name))}
-                            >
-                                <MinusIcon className="h-4 w-4 text-black" />
-                                <span className="sr-only">Decrease</span>
-                            </Button>
-                            <div className="text-center">
-                                <div className="text-md font-bold tracking-tighter">
-                                   {items}
-                                </div>
-                                
-                            </div>
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                className="h-6 w-6 shrink-0 rounded-full"
-                                onClick={()=>handleIncrement(bs.name)}
-                               
-                            >
-                                <PlusIcon className="h-4 w-4 text-black" />
-                                <span className="sr-only">Increase</span>
-                            </Button>
-                        </div>
+                        <Card className=' container flex relative w-full gap-0 items-center md:max-w-lg lg:max-w-2xl xl:max-w-full h-autofont-CustomFont'>
+                            <Avatar>
+                                <AvatarImage src={bs.image} className='w-24 h-24 rounded-lg'></AvatarImage>
+                            </Avatar>
+                            <CardHeader>
+                                <CardTitle>
+                                    {bs.name}
+                                </CardTitle>
+                                <CardDescription className=" font-light">$ {bs.price}</CardDescription>
+                                <CardContent>
+                                    <div className="">
+                                        <div className="flex items-center absolute gap-3 left-36 justify-between ">
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                className="h-6 w-6  rounded-full"
+                                                onClick={() => dispatch(decrementItem(bs.id))}
+                                            >
+                                                <MinusIcon className="h-4 w-4 text-black" />
+                                                <span className="sr-only">Decrease</span>
+                                            </Button>
+                                            <div className="text-center">
+                                                <div className="text-md font-bold tracking-tighter">
+                                                    {bs.cartQuantity}
+                                                </div>
 
-                    </div>
-                        </CardContent>
-                    </CardHeader>
-                    <CardFooter className='items-center bottom-6 absolute right-2'>
-                        <Button size={'icon'}><TrashIcon className="h-6 w-6 text-white" />
-                        </Button>
-                    </CardFooter>
+                                            </div>
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                className="h-6 w-6 shrink-0 rounded-full"
+                                                onClick={() => dispatch(incrementItem(bs.id))}
+                                            >
+                                                <PlusIcon className="h-4 w-4 text-black" />
+                                                <span className="sr-only">Increase</span>
+                                            </Button>
+                                        </div>
 
-                </Card>
-                ))
-            }
-        </div> </div>   
+                                    </div>
+                                </CardContent>
+                            </CardHeader>
+                            <CardFooter className='items-center bottom-6 absolute right-2'>
+                                <Button size={'icon'}><TrashIcon className="h-6 w-6 text-white" />
+                                </Button>
+                            </CardFooter>
+
+                        </Card>
+                    ))
+                }
+            </div> </div>
     );
 };
 

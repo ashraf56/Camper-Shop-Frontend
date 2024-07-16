@@ -6,10 +6,8 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 
 const Carts = () => {
-    
-    const carts = useAppSelector((state)=>state.cartsState.carts)
-    const items = useAppSelector((state) => state.cartsState.totalItem)
 
+    const carts = useAppSelector((state) => state.cartsState.carts)
     const dispatch = useAppDispatch()
 
 
@@ -19,10 +17,10 @@ const Carts = () => {
             <div className="container pt-5">
                 <h1 className="font-semibold text-xl">View all Carts</h1>
             </div>
-          {/* here is   all carts  */}
+            {/* here is   all carts  */}
             <div className="lg:flex my-10 justify-center items-center gap-3 container">
                 <div className="w-full">
-                    <AllCart carts={carts} dispatch={dispatch} items={items}></AllCart>
+                    <AllCart carts={carts} dispatch={dispatch}></AllCart>
                 </div>
                 {/* payment checkout */}
                 <div className="w-full mt-4 lg:mt-0">
@@ -40,7 +38,7 @@ const Carts = () => {
 
                             <div className="flex justify-between mb-3  container">
                                 <p>Total Items</p>
-                                <p>{items}</p>
+                                <p></p>
                             </div>
                             <hr className="mt-1" />
                             <div className="flex  flex-col mb-3  container">

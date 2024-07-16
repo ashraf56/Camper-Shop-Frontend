@@ -5,40 +5,43 @@ import { Button } from "@/components/ui/button";
 import { useParams } from 'react-router-dom';
 import { useGetSingleProductQuery } from '@/redux/feature/productApi';
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { addItemstoCart, decrement, increment } from "@/redux/feature/carts/cartSlice";
 import { toast } from "sonner";
+import { decrement, increment, resetCount } from "@/redux/feature/carts/cartCounterSlice";
+import { addItemstoCart } from "@/redux/feature/carts/cartSlice";
 const ProductDetail = () => {
     const { id: slug } = useParams()
     const { data, isLoading } = useGetSingleProductQuery(slug as string)
-    const items = useAppSelector((state) => state.cartsState.totalItem)
+    const items = useAppSelector((state) => state.counter.cartQuantity)
 
     const dispatch = useAppDispatch()
     if (isLoading) {
         return <p>Loading...</p>
     }
-    
+
     type CartsInfo = {
+        id: string
         name: string
         price: number
         stockQuantity: number
         image: string
         category: string
-        totalItem: number
+        cartQuantity: number
     }
     const handleAddtocart = () => {
 
         const cartsInfo: CartsInfo = {
+            id: data.data._id,
             name: data.data.name,
             price: data.data.price,
             stockQuantity: data.data.stockQuantity,
             image: data.data.image,
             category: data.data.category,
-            totalItem: items!
+            cartQuantity: items!
         }
 
         dispatch(addItemstoCart(cartsInfo))
         toast.success('success')
-
+        dispatch(resetCount())
     }
 
 
@@ -112,7 +115,7 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="w-full mt-14">
-                        <Button className="w-full" onClick={handleAddtocart}>Add to cart</Button>
+                        <Button className="w-full" onClick={handleAddtocart} disabled={items === 0}>Add to cart</Button>
                     </div>
                 </div>
 

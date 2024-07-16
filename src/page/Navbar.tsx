@@ -12,7 +12,11 @@ import {
     SheetHeader,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import { useAppSelector } from "@/redux/hook";
 const Navbar = () => {
+
+const  totalcarts = useAppSelector((state)=> state.cartsState.carts)
+
     return (
         <header className="flex h-14 w-full shrink-0 items-center bg-transparent backdrop-blur-md px-4 md:px-6 absolute z-20 font-CustomFont">
             <Link to={'/'} className="mr-6 flex">
@@ -66,7 +70,7 @@ const Navbar = () => {
                     >
                         <div className="flex gap-2 text-white">
                         <ShoppingCartIcon className="w-5 h-5 text-white" />
-                        <p>12</p>
+                        <p>{totalcarts.length || 0}</p>
                         </div>
                     </Link>
                 </Button>
