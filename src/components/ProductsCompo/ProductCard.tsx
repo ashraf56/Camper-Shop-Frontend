@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 
 
-const ProductCard = ({ name, image, price,_id }: any) => {
+const ProductCard = ({ name, image, price, _id }: any) => {
 
     return (
         <div >

@@ -6,10 +6,10 @@ import Ourteam from "@/components/AboutpageCompo/Ourteam";
 const Aboutus = () => {
     return (
         <div>
-           <Abouthero/>
-           <ContactInfo/>
-           <Ourmission/>
-           <Ourteam/>
+            <Abouthero />
+            <ContactInfo />
+            <Ourmission />
+            <Ourteam />
         </div>
     );
 };

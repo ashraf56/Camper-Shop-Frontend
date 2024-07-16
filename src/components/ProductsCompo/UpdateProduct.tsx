@@ -55,7 +55,7 @@ const UpdateProduct = ({ p }: any) => {
         try {
             await upadateProduct(productInfo)
             if (isError) {
-               return toast.error('unable to update')
+                return toast.error('unable to update')
             }
             toast.success('data updated')
 

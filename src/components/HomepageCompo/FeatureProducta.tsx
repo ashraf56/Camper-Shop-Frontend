@@ -12,7 +12,7 @@ const FeatureProducta = () => {
 
     return (
         <div className='font-CustomFont w-full'>
-            {  data?.data?.slice(0, 1)?.map((fp: any) => (
+            {data?.data?.slice(0, 1)?.map((fp: any) => (
                 <div className='  lg:flex p-5 my-5 justify-center items-center font-CustomFont w-full max-w-7xl mx-auto gap-4'>
                     <div className='text-center w-full lg:w-3/5'>
                         <p className='text-black text-xl uppercase font-light tracking-widest '>Feature PRoduct</p>

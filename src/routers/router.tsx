@@ -11,32 +11,32 @@ import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<App/>,
-        children:[
+        path: '/',
+        element: <App />,
+        children: [
             {
-                path:'',
-                element:<Home/>
+                path: '',
+                element: <Home />
             },
             {
-                path:'about',
-                element:<Aboutus/>
+                path: 'about',
+                element: <Aboutus />
             },
             {
-                path:'products',
-                element:<ProductsPage/>
+                path: 'products',
+                element: <ProductsPage />
             },
             {
-                path:'products/:id',
-                element:<ProductDetail/>,
+                path: 'products/:id',
+                element: <ProductDetail />,
             },
             {
-                path:'productmanager',
-                element:<Productmanagment/>
+                path: 'productmanager',
+                element: <Productmanagment />
             },
             {
-                path:'carts',
-                element:<Carts/>
+                path: 'carts',
+                element: <Carts />
             }
         ]
     }

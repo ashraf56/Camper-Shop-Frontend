@@ -11,10 +11,10 @@ import { toast } from 'sonner';
 
 const AllCart = ({ carts, dispatch }: any) => {
 
-const handleRemovecart = (id:string)=>{
-    dispatch(removeCart(id))
-    toast.success('cart removed')
-}
+    const handleRemovecart = (id: string) => {
+        dispatch(removeCart(id))
+        toast.success('cart removed')
+    }
 
     return (
         <div className="scrollbar scrollbar-thin h-80 overflow-y-scroll">
@@ -64,7 +64,7 @@ const handleRemovecart = (id:string)=>{
                                 </CardContent>
                             </CardHeader>
                             <CardFooter className='items-center bottom-6 absolute right-2'>
-                                <Button size={'icon'} onClick={()=>handleRemovecart(bs.id)}><TrashIcon className="h-6 w-6 text-white" />
+                                <Button size={'icon'} onClick={() => handleRemovecart(bs.id)}><TrashIcon className="h-6 w-6 text-white" />
                                 </Button>
                             </CardFooter>
 

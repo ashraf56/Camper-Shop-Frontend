@@ -38,7 +38,7 @@ const productApi = baseApi.injectEndpoints({
             query: (info) => ({
                 url: `/products/${info.id}`,
                 method: "PUT",
-                body:info.data
+                body: info.data
 
             }),
             invalidatesTags: ['products']
@@ -51,4 +51,4 @@ const productApi = baseApi.injectEndpoints({
 export const { useGetproductsQuery,
     useGetSingleProductQuery,
     useCreateProductMutation,
-    useDeleteaProductMutation ,useUpadateProductMutation} = productApi
+    useDeleteaProductMutation, useUpadateProductMutation } = productApi

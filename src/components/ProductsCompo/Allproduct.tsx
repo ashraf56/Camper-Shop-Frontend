@@ -19,7 +19,7 @@ import { useGetproductsQuery } from '@/redux/feature/productApi';
 
 const Allproduct = () => {
 
-    const { data, isLoading } = useGetproductsQuery(undefined,{pollingInterval:1000})
+    const { data, isLoading } = useGetproductsQuery(undefined, { pollingInterval: 1000 })
 
 
     if (isLoading) {

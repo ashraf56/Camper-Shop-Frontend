@@ -17,7 +17,7 @@ import { toast } from 'sonner';
 
 
 const ManageProduct = () => {
-  const { data, isLoading } = useGetproductsQuery(undefined, { pollingInterval: 1000})
+  const { data, isLoading } = useGetproductsQuery(undefined, { pollingInterval: 1000 })
 
   const [deleteaProduct,] = useDeleteaProductMutation()
   if (isLoading) {

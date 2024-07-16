@@ -4,8 +4,8 @@ import Productbanner from "@/components/ProductsCompo/Productbanner";
 const ProductsPage = () => {
     return (
         <div>
-            <Productbanner/>
-            <Allproduct/>
+            <Productbanner />
+            <Allproduct />
         </div>
     );
 };

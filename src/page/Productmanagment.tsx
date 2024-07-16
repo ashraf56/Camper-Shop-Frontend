@@ -4,8 +4,8 @@ import ProductMangementBanner from "@/components/ProductsCompo/ProductMangementB
 const Productmanagment = () => {
     return (
         <div>
-        <ProductMangementBanner/>
-        <ManageProduct></ManageProduct>
+            <ProductMangementBanner />
+            <ManageProduct></ManageProduct>
         </div>
     );
 };

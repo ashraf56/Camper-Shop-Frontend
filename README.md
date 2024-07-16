@@ -1,30 +1,75 @@
-# React + TypeScript + Vite
+# Camp Gear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+* Welcome to Campers Shop – your one-stop destination for all things camping! Whether you're a seasoned adventurer or a first-time explorer, we have everything you need to make your outdoor experiences unforgettable.
 
-Currently, two official plugins are available:
+## Features
+- Any user can buy product
+- Any user can create product, update,delete and  can modify product info.
+- User can see product details
+- Eye-catching images of camping adventures and featured products.
+- Easy access to view and edit cart items.
+- Ensure the website is fully functional and visually appealing on all devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology Stack
+- React
+- Redux (Redux tookit)
+- Node js
+- Express 
+- MongoDB
+- Typescript
+- ShadCn
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Installation Guideline
 
-- Configure the top-level `parserOptions` property like this:
+If you want to run this code into your local then follow the instruction.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+* Clone the backend code
+
+``` 
+https://github.com/ashraf56/Campers-Shop-Backend.git
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+*  opne your vs code terminal and write npm i
+
+``` 
+npm i
+```
+* create an env file  and set env variable  
+
+```
+Database_url= set here your mongodb database url
+PORT= 5000
+Node_Env= development
+
+```
+
+* Run tsc -w in the terminal
+```
+tsc -w
+```
+
+* Run server on local  
+```
+npm start
+```
+
+* After clone front end github
+
+``` 
+https://github.com/ashraf56/Camper-Shop-Frontend.git
+
+```
+
+*  opne your vs code terminal and write npm i
+
+``` 
+npm i
+```
+
+* Run project on local  
+```
+npm run dev 
+```

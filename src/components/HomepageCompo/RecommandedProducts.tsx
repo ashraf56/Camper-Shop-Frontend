@@ -8,7 +8,7 @@ import { useGetproductsQuery } from "@/redux/feature/productApi";
 
 const RecommendedProducts = () => {
 
-    const { data, isLoading } = useGetproductsQuery(undefined,{pollingInterval:1000})
+    const { data, isLoading } = useGetproductsQuery(undefined, { pollingInterval: 1000 })
 
 
     if (isLoading) {
@@ -24,7 +24,7 @@ const RecommendedProducts = () => {
             </div>
             <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto px-5">
                 {
-                    data?.data?.slice(2,5)?.map((b: any) => (
+                    data?.data?.slice(2, 5)?.map((b: any) => (
                         <ProductCard {...b} ></ProductCard>
                     ))
                 }
