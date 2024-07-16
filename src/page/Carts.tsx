@@ -8,6 +8,8 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 const Carts = () => {
 
     const carts = useAppSelector((state) => state.cartsState.carts)
+    const totalcartQuantoty = useAppSelector((state) => state.cartsState.totalQuantoty)
+    const totalPrice= useAppSelector((state) => state.cartsState.totalPrice)
     const dispatch = useAppDispatch()
 
 
@@ -33,12 +35,12 @@ const Carts = () => {
                         <CardContent className="gap-y-5">
                             <div className="flex justify-between mb-3 container">
                                 <p>Total Price</p>
-                                <p>$200.00</p>
+                                <p>${totalPrice}</p>
                             </div>
 
                             <div className="flex justify-between mb-3  container">
                                 <p>Total Items</p>
-                                <p></p>
+                                <p>{totalcartQuantoty}</p>
                             </div>
                             <hr className="mt-1" />
                             <div className="flex  flex-col mb-3  container">
